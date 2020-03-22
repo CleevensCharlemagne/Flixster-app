@@ -3,16 +3,24 @@ package com.example.flixster.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Movie {
 
+    int movieId;
     String backdropPath;
     String posterPath;
     String overview;
     String title;
+    String date;
+    double rating;
+
+    // Empty constructor needed by Parceler library
+    public Movie(){}
 
     public Movie(JSONObject jso) throws JSONException {
 
@@ -20,6 +28,9 @@ public class Movie {
         posterPath = jso.getString("poster_path");
         overview = jso.getString("overview");
         title = jso.getString("title");
+        rating = jso.getDouble("vote_average");
+        date = jso.getString("release_date");
+        movieId = jso.getInt("id");
 
     }
 
@@ -47,5 +58,17 @@ public class Movie {
 
     public String getBackdropPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public String getDate() {
+        return String.format("Release date : %s", date);
+    }
+
+    public int getMovieId() {
+        return movieId;
     }
 }
