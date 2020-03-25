@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,6 +75,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         TextView tvOverview;
         ImageView ivPoster;
         RelativeLayout container;
+        //RatingBar ratingBar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +84,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             container = itemView.findViewById(R.id.container);
+           // ratingBar = itemView.findViewById(R.id.ratingBar);
         }
 
         public void bind(final Movie movie) {
@@ -111,5 +117,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 }
             });
         }
+
+//        public Bitmap putOverlay(Bitmap bmp1, Bitmap overlay) {
+//            Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight(), Bitmap.Config.ARGB_8888);
+//            Canvas canvas = new Canvas(bmOverlay);
+//            Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG);
+//
+//            canvas.drawBitmap(bmp1, 0, 0, null);
+//            canvas.drawBitmap(overlay, 0, 0, null);
+//
+//            return bmOverlay;
+//        }
     }
 }

@@ -32,6 +32,7 @@ public class DetailActivity extends YouTubeBaseActivity {
     TextView tvReleaseDate;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
+    Movie movie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         ratingBar = findViewById(R.id.ratingBar);
         youTubePlayerView = findViewById(R.id.player);
 
-        Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
+        movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         tvReleaseDate.setText(movie.getDate());
@@ -70,7 +71,7 @@ public class DetailActivity extends YouTubeBaseActivity {
 
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-
+                Log.d("DetailActivity", " json call onFailure");
             }
         });
 
@@ -81,7 +82,14 @@ public class DetailActivity extends YouTubeBaseActivity {
                     @Override
                     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                         Log.d("DetailActivity", "onInitializationSuccess");
-                        youTubePlayer.cueVideo(youtubeKey);
+
+                        if(movie.getRating() >= 6.0){
+                            youTubePlayer.loadVideo(youtubeKey);
+                        }
+                        else {
+                            youTubePlayer.cueVideo(youtubeKey);
+                        }
+
                     }
 
                     @Override

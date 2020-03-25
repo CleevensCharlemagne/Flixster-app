@@ -18,6 +18,7 @@ public class Movie {
     String title;
     String date;
     double rating;
+    String overlay = "https://github.com/CleevensCharlemagne/Flixster-app/blob/master/button_black_play.png";
 
     // Empty constructor needed by Parceler library
     public Movie(){}
@@ -70,5 +71,9 @@ public class Movie {
 
     public int getMovieId() {
         return movieId;
+    }
+
+    public String getOverlay() {
+        return overlay;
     }
 }
