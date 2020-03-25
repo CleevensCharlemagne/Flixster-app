@@ -2,6 +2,7 @@ package com.example.flixster;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
@@ -72,7 +73,6 @@ public class DetailActivity extends YouTubeBaseActivity {
 
             }
         });
-
 
     }
 
