@@ -3,6 +3,8 @@ package com.example.flixster;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.flixster.adapters.MovieAdapter;
 import com.example.flixster.models.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -78,15 +81,14 @@ public class DetailActivity extends YouTubeBaseActivity {
     }
 
     private void initializeYoutube(final String youtubeKey) {
-        youTubePlayerView.initialize( YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
+        youTubePlayerView.initialize(YOUTUBE_API_KEY, new YouTubePlayer.OnInitializedListener() {
                     @Override
                     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                         Log.d("DetailActivity", "onInitializationSuccess");
 
-                        if(movie.getRating() >= 6.0){
+                        if (movie.getRating() >= 6.0) {
                             youTubePlayer.loadVideo(youtubeKey);
-                        }
-                        else {
+                        } else {
                             youTubePlayer.cueVideo(youtubeKey);
                         }
 
@@ -98,5 +100,6 @@ public class DetailActivity extends YouTubeBaseActivity {
                     }
                 }
         );
+
     }
 }

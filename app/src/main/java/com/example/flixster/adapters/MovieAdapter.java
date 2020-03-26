@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +75,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         TextView tvOverview;
         ImageView ivPoster;
         RelativeLayout container;
-        //RatingBar ratingBar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,6 +83,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             container = itemView.findViewById(R.id.container);
+
         }
 
         public void bind(final Movie movie) {
@@ -119,15 +120,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             });
         }
 
-//        public Bitmap putOverlay(Bitmap bmp1, Bitmap overlay) {
-//            Bitmap bmOverlay = Bitmap.createBitmap(bmp1.getWidth(), bmp1.getHeight(), Bitmap.Config.ARGB_8888);
-//            Canvas canvas = new Canvas(bmOverlay);
-//            Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG);
-//
-//            canvas.drawBitmap(bmp1, 0, 0, null);
-//            canvas.drawBitmap(overlay, 0, 0, null);
-//
-//            return bmOverlay;
-//        }
     }
 }
