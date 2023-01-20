@@ -50,7 +50,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
 
 
-    // Involves populating data into the item through holder
+    // Involves populating data into the item through holder.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
